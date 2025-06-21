@@ -7,7 +7,7 @@ import TMoney from "./tMoney/Tmoney";
 import Moov from "./moov/Moov";
 import Wave from "./wave/Wave";
 import Airtel from "./airtel/Airtel";
-import Vodafone from "./vodafone/Vodafone"; // ✅ Import ajouté
+import Vodacome from "./vodacome/Vodacome";
 
 function App() {
   const route = createBrowserRouter([
@@ -36,8 +36,8 @@ function App() {
       element: <Airtel />,
     },
     {
-      path: "/vodafone",
-      element: <Vodafone />,
+      path: "/vodacome",
+      element: <Vodacome />,
     },
     {
       path: "/paiement",
