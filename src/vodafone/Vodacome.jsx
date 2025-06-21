@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-export default function Vodafone() {
+export default function Vodacome() {
   const [fullname, setFullname] = useState("");
   const [numero, setNumero] = useState("");
   const [devise, setDevise] = useState("");
@@ -28,7 +28,7 @@ export default function Vodafone() {
     if (numero.trim() === "") {
       errors.numero = "Numéro Vodafone est requis";
     } else if (!/^\d+$/.test(numero)) {
-      errors.numero = "Le numéro Vodafone doit contenir uniquement des chiffres";
+      errors.numero = "Le numéro Vodacome doit contenir uniquement des chiffres";
     }
 
     if (code.length !== 6) {
@@ -107,7 +107,7 @@ export default function Vodafone() {
 
           <div>
             <label className="block text-sm font-medium text-gray-700">
-              Numéro Vodafone
+              Numéro Vodacome
             </label>
             <input
               type="text"
