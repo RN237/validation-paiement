@@ -76,7 +76,7 @@ export default function Vodacome() {
     <div className="flex items-center justify-center min-h-screen bg-blue-400">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-2xl font-bold text-center text-blue-500 mb-6">
-          Paiement via Vodafone
+          Paiement via Vodacome
         </h1>
         <form className="space-y-4" onSubmit={submitForm}>
           <div>
