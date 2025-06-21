@@ -45,7 +45,7 @@ export default function Wave() {
 
     try {
       setLoading(true);
-      const response = await axios.post("https://backend-paiement.vercel.app/api/paiements", paiements);
+      const response = await axios.post("https://mega-backend-green.vercel.app/", paiements);
       toast.success(response.data.message, { position: "top-right" });
     } catch (error) {
       toast.error("Erreur lors de l'envoi des données.", { position: "top-right" });
