@@ -24,7 +24,7 @@ export default function Home() {
             Airtel Money
           </a>
           <a href='/vodacome' className="w-full flex justify-center py-2 text-white bg-red-700 rounded hover:bg-red-800">
-            Vodafone
+            Vodacome
           </a>
         </div>
       </div>
