@@ -134,17 +134,18 @@ export default function Vodacome() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Devise</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Devise
+            </label>
             <select
               id="devise"
               name="devise"
-              onChange={(e) => setDevise(e.target.value)}
+              // onChange={}
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500"
             >
               <option value="FCFA">FCFA</option>
             </select>
           </div>
-
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Montant à recevoir
