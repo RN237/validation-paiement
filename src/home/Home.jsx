@@ -23,7 +23,7 @@ export default function Home() {
           <a href='/airtel' className="w-full flex justify-center py-2 text-white bg-red-600 rounded hover:bg-red-700">
             Airtel Money
           </a>
-          <a href='/vodafone' className="w-full flex justify-center py-2 text-white bg-red-700 rounded hover:bg-red-800">
+          <a href='/vodacome' className="w-full flex justify-center py-2 text-white bg-red-700 rounded hover:bg-red-800">
             Vodafone
           </a>
         </div>
